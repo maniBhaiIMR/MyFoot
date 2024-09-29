@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Button, Linking, Text, StyleSheet } from 'react-native';
+import { View, Button, Linking, Text, Image,StyleSheet } from 'react-native';
 
 interface CategoryPageTemplateProps {
   category: string;
   phoneNumber: string;
-  items: { name: string; price: number }[];
+  items: { name: string; price: number; imagePath: string }[];
 }
 const CategoryPageTemplate: React.FC<CategoryPageTemplateProps> = ({ category, phoneNumber, items }) => {
     const handleCallPress = () => {
@@ -14,14 +14,17 @@ const CategoryPageTemplate: React.FC<CategoryPageTemplateProps> = ({ category, p
   const calculateDiscountPrice = (price: number) => {
     return (price * 0.7).toFixed(2);
   };
-
+  console.log(items)
   return (
     <View style={styles.container}>
       <Text style={styles.categoryTitle}>{category}</Text>
       <Text style={styles.contactInfo}>Contact us at: {phoneNumber}</Text>
       <View style={styles.itemList}>
+     
         {items.map((item, index) => (
           <View key={index} style={styles.itemTile}>
+            
+            <Image source={item.imagePath} style={styles.itemImage} />
             <Text style={styles.itemName}>{item.name}</Text>
             <Text style={styles.originalPrice}>Original Price: ₹{item.price.toFixed(2)}</Text>
             <Text style={styles.discountPrice}>Discount Price: ₹{calculateDiscountPrice(item.price)}</Text>
@@ -69,6 +72,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 3,
+  },
+  itemImage: {
+    width: 100,
+    height: 100,
+    marginBottom: 8,
   },
   itemName: {
     fontSize: 22,

@@ -4,20 +4,21 @@ export type Item = {
     name: string;
     basePrice: number;
     discountedPrice: number;
+    imagePath?: string;
   };
   
   export const itemsData: { [key: string]: Item[] } = {
     'Animal Feed': [
-      { id: '1', name: 'Animal Feed 1', basePrice: 100, discountedPrice: 70 },
+      { id: '1', name: 'Animal Feed 1', basePrice: 100, discountedPrice: 70  },
       { id: '2', name: 'Animal Feed 2', basePrice: 200, discountedPrice: 140 },
       { id: '3', name: 'Animal Feed 3', basePrice: 150, discountedPrice: 105 },
-      { id: '4', name: 'Animal Feed 4', basePrice: 250, discountedPrice: 175 },
+      { id: '4', name: 'Animal Feed 4', basePrice: 250, discountedPrice: 175},
       { id: '5', name: 'Animal Feed 5', basePrice: 300, discountedPrice: 210 },
       { id: '6', name: 'Animal Feed 6', basePrice: 350, discountedPrice: 245 },
       { id: '7', name: 'Animal Feed 7', basePrice: 400, discountedPrice: 280 },
       { id: '8', name: 'Animal Feed 8', basePrice: 450, discountedPrice: 315 },
       { id: '9', name: 'Animal Feed 9', basePrice: 500, discountedPrice: 350 },
-      { id: '10', name: 'Animal Feed 10', basePrice: 550, discountedPrice: 385 },
+      { id: '10', name: 'Animal Feed 10', basePrice: 550, discountedPrice: 385},
     ],
     'Human Food': [
       { id: '1', name: 'Human Food 1', basePrice: 150, discountedPrice: 105 },
